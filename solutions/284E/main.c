@@ -64,5 +64,6 @@ int main(int argc, char *argv[]) {
 				printf("%s\n", orig_word);
 		}
 	}
+	fclose(fp);
 }
 
