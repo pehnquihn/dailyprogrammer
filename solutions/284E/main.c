@@ -18,10 +18,8 @@ int main(int argc, char *argv[]) {
 		exit(1);
 	}
 	// While the end of the file has not been reached
-	while (!feof(fp)) {
-		// Scan in the next word in the dictionary file
-		char word[1000];
-		fscanf(fp, "%s", word);
+	char word[1000];
+	while (fscanf(fp, "%s", word) == 1) {
 		// Get the length of the scanned in word
 		int len_word = strlen(word);
 		// Continue to the next word if the word is less than 5 characters
