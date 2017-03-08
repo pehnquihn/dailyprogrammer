@@ -21,18 +21,11 @@ void find_value (char *result, int index) {
 	int i;
 	for (i = 1; index >= pow(2, i); i++)
 		index -= pow(2, i);
-	// Calculate how many zeros will be needed to be added
-	// as padding
-	int padding = i;
-	if (index != 0)
-		padding = i - (int)(log(index) / log(2)) - 1;
-	// Add the necessary padding zeros
-	for (int j = 0; j < padding; j++)
-		*(result++) = '0';
-	// Begin filling in the binary representation of index.
-	// In the below while loop, this is done backwards.
-	while (index) {
-		*(--result + i - padding) = '0' + (index & 1);
+	// Write the correct binary representation of index,
+	// doing so backwards. This will also add all needed
+	// padding zeros.
+	for (int j = i - 1; j >= 0; j--) {
+		result[j] = '0' + (index & 1);
 		index >>= 1;
 	}
 }
