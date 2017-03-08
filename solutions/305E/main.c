@@ -49,17 +49,19 @@ int find_index (char *value) {
 }
 
 int main (int argc, char **argv) {
+	// Convert a given index to a value
 	if (argc == 2) {
 		char *result = malloc(sizeof(char) * MAX_BUFFER);
 		find_value(result, atoi(argv[1]));
 		printf("%s\n", result);
 		free(result);
 	}
-	else if (argc == 3) {
+	// Convert a given value to an index
+	else if (argc == 3)
 		printf("%d\n", find_index(argv[2]));
-	} else {
+	// Prompt the user the program was used incorrectly
+	else
 		printf("Must enter either 1 or two arguments!\n");
-	}
 	return 0;
 }
 
