@@ -18,7 +18,7 @@ def main():
     # Loop through input lines
     for line in lines[1:-1]:
         d = {int(value): distance for distance, value in enumerate(line.split())}
-        print(sum(map(lambda x: abs(d[x + 1] - d[x]), filter(lambda x: (x + 1) in d, d))))
+        print(sum(map(lambda x: abs(d[x + gap] - d[x]), filter(lambda x: (x + gap) in d, d))))
 
 if __name__ == '__main__':
     main()
